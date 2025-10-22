@@ -1,4 +1,5 @@
 //  بخش لاگین 
+//  بخش لاگین 
 const loginForm = document.getElementById('logginForm');
 const logoutBtn = document.getElementById('logoutBtn');
 
@@ -10,19 +11,21 @@ if (loggedInUser && window.location.pathname.endsWith("index.html")) {
 }
 
 // فقط در صفحه login اجرا میشه
-if(loginForm){
-    loginForm.addEventListener('submit', function(e){
+if (loginForm) {
+    loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
+
         const username = document.getElementById('username').value.trim();
-        const email = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('password').value.trim();
 
-        if(username && email && password){
-            loggedInUser = {username, email, password};
+        // بررسی نام و پسورد خاص
+        if (username === "shakofa" && password === "123456") {
+
+            loggedInUser = { username };
             localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-            
-          //پیام خوش آمدی
-            if(!sessionStorage.getItem('welcomeShown')){
+
+            // پیام خوش‌آمدی فقط یکبار
+            if (!sessionStorage.getItem('welcomeShown')) {
                 alert(`Welcome ${username}!`);
                 sessionStorage.setItem('welcomeShown', 'true');
             }
@@ -30,24 +33,27 @@ if(loginForm){
             showLogoutButton();
             loginForm.style.display = 'none';
 
-            //  کاربر به home.html میره
+            // انتقال به صفحه home
             window.location.href = "home.html";
+
+        } else {
+            alert("❌ Incorrect username or password. Please try again!");
         }
     });
 }
 
-function showLogoutButton(){
-    if(logoutBtn) logoutBtn.style.display = 'block';
+function showLogoutButton() {
+    if (logoutBtn) logoutBtn.style.display = 'block';
 }
 
 // دکمه logout
-if(logoutBtn){
-    logoutBtn.addEventListener('click', function(e){
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', function (e) {
         e.preventDefault();
         localStorage.removeItem('loggedInUser');
         sessionStorage.removeItem('welcomeShown');
         loggedInUser = null;
-        window.location.href = "index.html"; // بازگشت به login
+        window.location.href = "index.html";
     });
 }
 
