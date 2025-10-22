@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">     
+    <link rel="icon" href="../images/higher-education.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <title>Noura Academy</title>
+</head>
+<body>
+  <!-- نوار ناوبر با استفاده از بوتسترپت -->
+          <nav class="navbar navbar-expand-lg  bg-dark navbar-dark px-3 fixed-top ">
+    <a class="navbar-brand fw-bold fs-1" href=""> Noura Academ</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse " id="navbarText">
+       <ul class="navbar-nav ms-auto  ">
+          <li class="nav-item">
+            <a class="nav-link active" href="./home.html"> Home</a> </li>
+          <li class="nav-item"> 
+            <a class="nav-link" href="./home.html#about">  About</a> </li>
+          <li class="nav-item">
+              <a class="nav-link" href="./contact.html">Contact</a> </li>
+          <li class="nav-item">
+              <a class="nav-link" href="./dashboard.html">Dashboard </a> </li>
+          <li >
+              <a href="./index.html"><input id="logoutBtn" type="button" value="Logout"></a></li>
+
+       </ul>
+      </div>
+    </nav> 
+    
+    <!-- سلاید شو -->
+<div class="slideshow-container">
+
+  <!-- سلاید 1 -->
+  <div class="slide active">
+    <img src="../images/wellcome slide 1.jpg" alt="Welcome Slide">
+    <div class="caption">
+      <h2>Welcome to Noura Online Courses.</h2>
+      <p>Explore and learn whatever you like, for free or at a low cost!</p>
+    </div>
+  </div>
+
+  <!-- سلاید 2 -->
+  <div class="slide">
+    <img src="../images/wellcome slide 2.jpg" alt="Slide 2">
+    <div class="caption">
+      <h2>Creativity is Power ⚡</h2>
+      <p>Unleash your imagination and skills with our courses.</p>
+    </div>
+  </div>
+
+  <!-- سلاید 3 -->
+  <div class="slide">
+    <img src="../images/wellcome slide 3.jpg" alt="Slide 3">
+    <div class="caption">
+      <h2>Design with Passion ❤️</h2>
+      <p>Turn your ideas into amazing projects.</p>
+    </div>
+  </div>
+
+  <!-- سلاید 4 -->
+  <div class="slide">
+    <img src="../images/wellcome slide 4.jpg" alt="Slide 4">
+    <div class="caption">
+      <h2>Dream. Create. Inspire ✨</h2>
+      <p>Take your skills to the next level and shine.</p>
+    </div>
+  </div>
+
+  <!-- نقاط پایین (دات‌ها) -->
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <!-- دکمه‌های بعدی و قبلی -->
+  <div class="controls">
+    <a id="prev">&#10094;</a>
+    <a id="next">&#10095;</a>
+  </div>
+</div>
+   <!-- بخش درباره ما -->
+    <section id="about" class="py-3 mt2 ">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold"> Our Mission</h2>
+    </div>
+     <div class="row justify-content-center">
+      <div class="col-md-10">
+        <p class=" text-center">
+          At <strong>SheCan.af</strong>,Our mission is to empower young women and men by providing access to practical skills,
+           digital learning, and career guidance. Explore a variety of courses—free or at a low cost—and discover your potential in
+            a safe, inspiring environment.
+           Learn, grow, and unlock opportunities that lead to success and a brighter future!
+        </p>
+   
+      </div>
+     </div>
+     <div class="mt-5"></div>
+      <div class="row justify-content-center">
+      <div class="col-md-10">
+        <h2 class="fw-bold text-center"> Literacy status of Afghan people</h2>
+        <p class="text-center">
+          According to available data, literacy among Afghan people remains critically low — especially in rural 
+          and underdeveloped areas. A small percentage of people have completed higher education,
+           while the majority live with very limited literacy or none at all.
+        </p>
+
+            <div class="mb-4">
+            <label class="fw-bold">Higher Education</label>
+            <div class="progress mb-3">
+               <div class="progress-bar bg-success" role="progressbar" style="width: 4%;">4%</div>
+            </div>
+
+            <label class="fw-bold">Basic Literacy</label>
+            <div class="progress mb-3">
+               <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: 26%;">26%</div>
+            </div>
+
+           <label class="fw-bold">Low Literacy</label>
+           <div class="progress mb-3">
+               <div class="progress-bar bg-info text-dark" role="progressbar" style="width: 25%;">25%</div>
+           </div>
+
+           <label class="fw-bold">Illiterate</label>
+            <div class="progress">
+               <div class="progress-bar bg-danger" role="progressbar" style="width: 50%;">50%</div>
+           </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</section><br><br>
+<!-- بخش ویدیو -->
+<div class="video-section">
+  <h2>Watch & Get Inspired 🎬</h2>
+ <div class="video-container">
+  <iframe src="https://www.youtube.com/embed/llXpLXOIY-w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+</div>
+
+    <!-- کارت‌های دوره‌ها -->
+
+<section class="course-cards ">
+  <section class="courses-intro justify-content-center col-md-10 ">
+  <h2 class="fw-bold">Our Training Programs</h2>
+  <p class="">
+    Our academy offers a variety of professional and creative courses designed for all learners.
+    From mastering new languages to exploring technology, design, and arts — 
+    our classes help you build real-world skills and grow your talents.
+  </p>
+</section>
+  <div class="card">
+     <img src="../images/language.jpg" alt="Language Courses">
+    <i class="fas fa-language"></i>
+    <h3>Language Courses</h3>
+    <p>English <br> German <br> French</p>
+  </div>
+
+  <div class="card">
+    <img src="../images/programming.jpg" alt="Programming & Design">
+    <i class="fas fa-code"></i>
+    <h3>Programming & Design</h3>
+    <p>Web Development <br> Graphic Design</p>
+  </div>
+
+  <div class="card">
+    <img src="../images/art.jpg" alt="Creative Skills">
+    <i class="fas fa-paint-brush"></i>
+    <h3>Creative Skills</h3>
+    <p>Sewing <br> Painting <br> Calligraphy</p>
+  </div>
+</section>
+<!-- بخش استادان -->
+<section id="instructors" style="text-align:center; padding:40px;">
+  <h2>👩‍🏫 Our Instructors</h2>
+  <div id="instructorsContainer"></div>
+</section>
+  
+   <!-- فوتر -->
+ <footer>
+   <div class="footer-content">
+     <p class="text-footer">© 2023 Noura Academy. All rights reserved.</p>
+   </div>
+ </footer>
+ 
+  <script src="../js/java.js"></script>
+  <script src="../js/instructors.js"></script>
+</body>
+</html>
