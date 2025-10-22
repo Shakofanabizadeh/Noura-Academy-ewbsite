@@ -1,17 +1,19 @@
-
 // بخش لاگین
+// ==========================
+
 const loginForm = document.getElementById('logginForm');
 const logoutBtn = document.getElementById('logoutBtn');
 
 // خواندن اطلاعات کاربر ذخیره‌شده در localStorage
 let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
 
-// اگر کاربر قبلاً لاگین کرده، مستقیم به home.html بره
+// اگر کاربر قبلاً لاگین کرده، مستقیم به home.html بره یا دکمه خروج نمایش داده شود
 if (loggedInUser) {
     if (window.location.pathname.endsWith("index.html")) {
         window.location.href = "home.html";
     } else {
         showLogoutButton();
+        if (loginForm) loginForm.style.display = 'none';
     }
 }
 
@@ -30,7 +32,7 @@ if (loginForm) {
             loggedInUser = { username, password };
             localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
-            // پیام خوش آمدی  
+            // پیام خوش‌آمد فقط بار اول
             if (!sessionStorage.getItem('welcomeShown')) {
                 alert(`Welcome ${username}!`);
                 sessionStorage.setItem('welcomeShown', 'true');
