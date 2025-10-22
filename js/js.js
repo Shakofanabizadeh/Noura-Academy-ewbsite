@@ -1,16 +1,21 @@
-//  بخش لاگین 
-//  بخش لاگین 
+
+// بخش لاگین
 const loginForm = document.getElementById('logginForm');
 const logoutBtn = document.getElementById('logoutBtn');
 
+// خواندن اطلاعات کاربر ذخیره‌شده در localStorage
 let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
 
 // اگر کاربر قبلاً لاگین کرده، مستقیم به home.html بره
-if (loggedInUser && window.location.pathname.endsWith("index.html")) {
-    window.location.href = "home.html";
+if (loggedInUser) {
+    if (window.location.pathname.endsWith("index.html")) {
+        window.location.href = "home.html";
+    } else {
+        showLogoutButton();
+    }
 }
 
-// فقط در صفحه login اجرا میشه
+// فقط در صفحه login اجرا می‌شود
 if (loginForm) {
     loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -18,13 +23,14 @@ if (loginForm) {
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
 
-        // بررسی نام و پسورد خاص
+        // بررسی نام و پسورد صحیح
         if (username === "shakofa" && password === "123456") {
 
-            loggedInUser = { username };
+            // ذخیره اطلاعات در localStorage
+            loggedInUser = { username, password };
             localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
-            // پیام خوش‌آمدی فقط یکبار
+            // پیام خوش آمدی  
             if (!sessionStorage.getItem('welcomeShown')) {
                 alert(`Welcome ${username}!`);
                 sessionStorage.setItem('welcomeShown', 'true');
@@ -42,20 +48,26 @@ if (loginForm) {
     });
 }
 
+// نمایش دکمه خروج
 function showLogoutButton() {
     if (logoutBtn) logoutBtn.style.display = 'block';
 }
 
-// دکمه logout
+// عملکرد logout
 if (logoutBtn) {
     logoutBtn.addEventListener('click', function (e) {
         e.preventDefault();
+
+        // حذف اطلاعات از localStorage و sessionStorage
         localStorage.removeItem('loggedInUser');
         sessionStorage.removeItem('welcomeShown');
         loggedInUser = null;
+
+        // بازگشت به صفحه login
         window.location.href = "index.html";
     });
 }
+
 
 // بخش تماس  
 const contactForm = document.getElementById('contact');
@@ -124,20 +136,20 @@ function resetAutoSlide(){
 
 // داشبورد
 const courses = [
-    {title:"English A1-A2", img:"../images/English A1-A2.jpg", desc:"Introduction to English for beginners. <br> teacher : Ali Ahmadi"},
-    {title:"English B1-B2", img:"../images/English B1-B2.jpg", desc:"Intermediate English skills.<br> teacher : Sara Ahmadi"},
-    {title:"English C1", img:"../images/English C1.jpg", desc:"Advanced English course.<br> teacher : Sahar Ahmadi"},
-    {title:"German A1-A2", img:"../images/German A1-A2.jpg", desc:"Beginner German course.<br> teacher : Ali Ahmadi"},
-    {title:"German B1-B2", img:"../images/German B1-B2.jpg", desc:"Intermediate German skills.<br> teacher : samira Moradi"},
-    {title:"German C1", img:"../images/German C1.jpg", desc:"Advanced German course.<br> teacher : Sama Mohammadi"},
-    {title:"French A1-A2", img:"../images/French A1-A2.jpg", desc:"Beginner French course.<br> teacher : Zahra Azimi"},
-    {title:"French B1-B2", img:"../images/French B1-B2.jpg", desc:"Intermediate French skills.<br> teacher : Zahra Azimi"},
-    {title:"French C1", img:"../images/French C1.jpg", desc:"Advanced French course.<br> teacher : Kowsar Hashemi"},
-    {title:"Sewing", img:"../images/Sewing.jpg", desc:"Learn sewing skills and techniques.<br> teacher : Zainab Mohammadi"},
-    {title:"Painting", img:"../images/Painting.jpg", desc:"Learn painting techniques and styles.<br> teacher : Amir Amiri"},
-    {title:"Calligraphy", img:"../images/Calligraphy.jpg", desc:"Learn the art of calligraphy.<br> teacher : Reza Karimi"},
-    {title:"Graphic Design", img:"../images/Graphic Design.jpg", desc:"Basics of digital graphic design.<br> teacher : Nima Ahmadi"},
-    {title:"Web Design", img:"../images/Web Design.jpg", desc:"Learn web design and development.<br> teacher : Mina Hosseini"},
+    {title:"English A1-A2", img:"./images/English A1-A2.jpg", desc:"Introduction to English for beginners. <br> teacher : Ali Ahmadi"},
+    {title:"English B1-B2", img:"./images/English B1-B2.jpg", desc:"Intermediate English skills.<br> teacher : Sara Ahmadi"},
+    {title:"English C1", img:"./images/English C1.jpg", desc:"Advanced English course.<br> teacher : Sahar Ahmadi"},
+    {title:"German A1-A2", img:"./images/German A1-A2.jpg", desc:"Beginner German course.<br> teacher : Ali Ahmadi"},
+    {title:"German B1-B2", img:"./images/German B1-B2.jpg", desc:"Intermediate German skills.<br> teacher : samira Moradi"},
+    {title:"German C1", img:"./images/German C1.jpg", desc:"Advanced German course.<br> teacher : Sama Mohammadi"},
+    {title:"French A1-A2", img:"./images/French A1-A2.jpg", desc:"Beginner French course.<br> teacher : Zahra Azimi"},
+    {title:"French B1-B2", img:"./images/French B1-B2.jpg", desc:"Intermediate French skills.<br> teacher : Zahra Azimi"},
+    {title:"French C1", img:"./images/French C1.jpg", desc:"Advanced French course.<br> teacher : Kowsar Hashemi"},
+    {title:"Sewing", img:"./images/Sewing.jpg", desc:"Learn sewing skills and techniques.<br> teacher : Zainab Mohammadi"},
+    {title:"Painting", img:"./images/Painting.jpg", desc:"Learn painting techniques and styles.<br> teacher : Amir Amiri"},
+    {title:"Calligraphy", img:"./images/Calligraphy.jpg", desc:"Learn the art of calligraphy.<br> teacher : Reza Karimi"},
+    {title:"Graphic Design", img:"./images/Graphic Design.jpg", desc:"Basics of digital graphic design.<br> teacher : Nima Ahmadi"},
+    {title:"Web Design", img:"./images/Web Design.jpg", desc:"Learn web design and development.<br> teacher : Mina Hosseini"},
 ];
 
 const cardsContainer = document.getElementById('cardsContainer');
@@ -234,50 +246,3 @@ function unenroll(title){
     updateEnrolledList();
     renderCards(courses);
 }
-// نمایش استادان آکادمی با Fetch API
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const instructorsContainer = document.getElementById('instructorsContainer');
-  if (!instructorsContainer) return; // اگر این بخش در صفحه نبود، ادامه نده
-
-  instructorsContainer.textContent = 'Loading instructors...';
-
-  fetch('../data/instructors.json')
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    })
-    .then(data => {
-      instructorsContainer.textContent = ''; // حذف متن لودینگ
-
-      data.forEach(user => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.style = `
-          border: 1px solid #ccc;
-          border-radius: 10px;
-          padding: 15px;
-          margin: 10px;
-          width: 220px;
-          text-align: center;
-          background: #f9f9f9;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-          display: inline-block;
-        `;
-        card.innerHTML = `
-          <h3>${user.name}</h3>
-          <p><strong>Subject:</strong> ${user.subject}</p>
-          <p><strong>Email:</strong> ${user.email}</p>
-        `;
-        instructorsContainer.appendChild(card);
-      });
-    })
-    .catch(error => {
-      instructorsContainer.textContent = 'Error loading instructors!';
-      console.error(error);
-    });
-});
-
-
-

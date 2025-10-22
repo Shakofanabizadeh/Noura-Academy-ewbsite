@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   instructorsContainer.textContent = 'Loading instructors...';
 
-  fetch('../data/instructors.json')
+  fetch('./data/instructors.json')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
