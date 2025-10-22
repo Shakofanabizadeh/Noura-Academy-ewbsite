@@ -51,7 +51,7 @@ Final pro {
 3. وارد حساب کاربری شوید یا ثبت‌نام کنید
 4. به داشبورد کورس‌ها و سایر بخش‌ها دسترسی پیدا کنید
 
-![Alt Text](../images/api%20show.jpg)
+![Alt Text](./images/api%20show.jpg)
 
 
 
