@@ -1,74 +1,69 @@
-// بخش لاگین
-// ==========================
+// لاگین فورم و لاگ‌اوت
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById('logginForm');
+    const logoutBtn = document.getElementById('logoutBtn');
 
-const loginForm = document.getElementById('logginForm');
-const logoutBtn = document.getElementById('logoutBtn');
+    // خواندن اطلاعات کاربر ذخیره‌شده از localStorage
+    let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
 
-// خواندن اطلاعات کاربر ذخیره‌شده در localStorage
-let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
-
-// اگر کاربر قبلاً لاگین کرده، مستقیم به home.html بره یا دکمه خروج نمایش داده شود
-if (loggedInUser) {
-    if (window.location.pathname.endsWith("index.html")) {
-        window.location.href = "home.html";
-    } else {
-        showLogoutButton();
-        if (loginForm) loginForm.style.display = 'none';
+    // فقط در صفحه login چک کن
+    if (window.location.pathname.endsWith("index.html") && loggedInUser) {
+    window.location.href = "home.html";
     }
-}
 
-// فقط در صفحه login اجرا می‌شود
-if (loginForm) {
-    loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+    // فقط در صفحه login اجرا میشه
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
 
-        // بررسی نام و پسورد صحیح
-        if (username === "shakofa" && password === "123456") {
+            // بررسی نام کاربری و پسورد
+            if (username === "shakofa" && password === "123456") {
+                // ذخیره اطلاعات در localStorage
+                loggedInUser = { username, password };
+                localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
-            // ذخیره اطلاعات در localStorage
-            loggedInUser = { username, password };
-            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+                // پیام خوش آمدگویی فقط بار اول
+                if (!sessionStorage.getItem('welcomeShown')) {
+                    alert(`Welcome ${username}!`);
+                    sessionStorage.setItem('welcomeShown', 'true');
+                }
 
-            // پیام خوش‌آمد فقط بار اول
-            if (!sessionStorage.getItem('welcomeShown')) {
-                alert(`Welcome ${username}!`);
-                sessionStorage.setItem('welcomeShown', 'true');
+                // مخفی کردن فرم لاگین و نمایش logout
+                loginForm.style.display = 'none';
+                showLogoutButton();
+
+                // هدایت به home.html
+                window.location.href = "home.html";
+
+            } else {
+                alert("❌ Incorrect username or password. Please try again!");
             }
+        });
+    }
 
-            showLogoutButton();
-            loginForm.style.display = 'none';
+    // نمایش دکمه logout
+    function showLogoutButton() {
+        if (logoutBtn) logoutBtn.style.display = 'block';
+    }
 
-            // انتقال به صفحه home
-            window.location.href = "home.html";
+    // عملکرد logout
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
 
-        } else {
-            alert("❌ Incorrect username or password. Please try again!");
-        }
-    });
-}
+            // پاک کردن اطلاعات کاربر
+            localStorage.removeItem('loggedInUser');
+            sessionStorage.removeItem('welcomeShown');
+            loggedInUser = null;
 
-// نمایش دکمه خروج
-function showLogoutButton() {
-    if (logoutBtn) logoutBtn.style.display = 'block';
-}
-
-// عملکرد logout
-if (logoutBtn) {
-    logoutBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // حذف اطلاعات از localStorage و sessionStorage
-        localStorage.removeItem('loggedInUser');
-        sessionStorage.removeItem('welcomeShown');
-        loggedInUser = null;
-
-        // بازگشت به صفحه login
-        window.location.href = "index.html";
-    });
-}
+            // بازگشت به login
+            window.location.href = "index.html";
+        });
+    }
+});
 
 
 // بخش تماس  
