@@ -145,8 +145,8 @@ const courses = [
     {title:"Sewing", img:"./images/Sewing.jpg", desc:"Learn sewing skills and techniques.<br> teacher : Zainab Mohammadi"},
     {title:"Painting", img:"./images/Painting.jpg", desc:"Learn painting techniques and styles.<br> teacher : Amir Amiri"},
     {title:"Calligraphy", img:"./images/Calligraphy.jpg", desc:"Learn the art of calligraphy.<br> teacher : Reza Karimi"},
-    {title:"Graphic Design", img:"./images/Graphic Design.jpg", desc:"Basics of digital graphic design.<br> teacher : Nima Ahmadi"},
-    {title:"Web Design", img:"./images/Web Design.jpg", desc:"Learn web design and development.<br> teacher : Mina Hosseini"},
+    {title:"Graphic Design", img:"./images/Graphic design.jpg", desc:"Basics of digital graphic design.<br> teacher : Nima Ahmadi"},
+    {title:"Web Design", img:"./images/Web design.jpg", desc:"Learn web design and development.<br> teacher : Mina Hosseini"},
 ];
 
 const cardsContainer = document.getElementById('cardsContainer');
